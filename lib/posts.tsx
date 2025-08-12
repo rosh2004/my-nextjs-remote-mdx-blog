@@ -53,8 +53,9 @@ export async function getPostByName(fileName: string): Promise<BlogPost | undefi
 }
 
 export async function getPostsMeta(): Promise<Meta[] | undefined> {
+  const githubApiUrl = process.env.GITHUB_API_URL;
   const res = await fetch(
-    "https://api.github.com/repos/rosh2004/next-test-blogpost/git/trees/main?recursive=1",
+    githubApiUrl!,
   {
     headers: {
       Accept: 'application/vnd.github+json',
